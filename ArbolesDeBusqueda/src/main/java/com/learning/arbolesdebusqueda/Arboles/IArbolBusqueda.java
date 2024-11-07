@@ -24,6 +24,7 @@ public interface IArbolBusqueda<K extends Comparable<K>,V>{
     public void vaciar();
     public boolean esArbolVacio();
     public int nivel();
+    public String toStringValor();
 
 }
 

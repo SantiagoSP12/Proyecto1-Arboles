@@ -24,7 +24,7 @@ public class AVL<K extends Comparable<K>,V> extends ABB<K,V>{
 
     private NodoBinario<K,V> insertar(NodoBinario<K,V> nodoActual, K datoAInsertar,V valorAsociado){
         if(NodoBinario.esNodoVacio(nodoActual)){
-            return new NodoBinario<>(datoAInsertar);
+            return new NodoBinario<>(datoAInsertar, valorAsociado);
         }
         K datoActual= nodoActual.getDato();
         if(datoAInsertar.compareTo(datoActual)<0){

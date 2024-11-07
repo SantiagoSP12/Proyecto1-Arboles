@@ -122,7 +122,7 @@ public class NodoMVias <K,V>{
                     representacion += ", ";
                 }
             }else {
-                representacion += ", null";
+                representacion += ", ";
             }
         }
         representacion += "]";

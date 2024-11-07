@@ -49,6 +49,8 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         ShopArea = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
+        TreeValuesArea = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
         TreeArea = new javax.swing.JTextArea();
         MenuArbol = new javax.swing.JMenuBar();
         TreeTypeMenu = new javax.swing.JMenu();
@@ -59,6 +61,8 @@ public class Interfaz extends javax.swing.JFrame {
         OperationMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         EliminarButton = new javax.swing.JMenuItem();
+        InsertarArbolButton = new javax.swing.JMenuItem();
+        EliminarDelArbolButton = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,9 +87,13 @@ public class Interfaz extends javax.swing.JFrame {
         ShopArea.setRows(5);
         jScrollPane2.setViewportView(ShopArea);
 
+        TreeValuesArea.setColumns(20);
+        TreeValuesArea.setRows(5);
+        jScrollPane1.setViewportView(TreeValuesArea);
+
         TreeArea.setColumns(20);
         TreeArea.setRows(5);
-        jScrollPane1.setViewportView(TreeArea);
+        jScrollPane3.setViewportView(TreeArea);
 
         TreeTypeMenu.setText("TipoDeArbol");
 
@@ -142,6 +150,22 @@ public class Interfaz extends javax.swing.JFrame {
         });
         OperationMenu.add(EliminarButton);
 
+        InsertarArbolButton.setText("Producto Nuevo");
+        InsertarArbolButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertarArbolButtonActionPerformed(evt);
+            }
+        });
+        OperationMenu.add(InsertarArbolButton);
+
+        EliminarDelArbolButton.setText("Eliminar Producto");
+        EliminarDelArbolButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarDelArbolButtonActionPerformed(evt);
+            }
+        });
+        OperationMenu.add(EliminarDelArbolButton);
+
         MenuArbol.add(OperationMenu);
 
         setJMenuBar(MenuArbol);
@@ -151,41 +175,47 @@ public class Interfaz extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(239, 239, 239)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(NameLabel)
-                    .addComponent(CodeLabel))
-                .addGap(53, 53, 53)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(CodeText, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(ExecuteButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 703, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(117, 117, 117)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(NameLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CodeLabel)
+                                .addGap(111, 111, 111)
+                                .addComponent(CodeText, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(23, 23, 23)
+                        .addComponent(ExecuteButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(570, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ExecuteButton)
-                    .addComponent(CodeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NameLabel))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(219, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ExecuteButton)
+                            .addComponent(CodeLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameLabel))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         pack();
@@ -222,6 +252,7 @@ public class Interfaz extends javax.swing.JFrame {
             setArbol();
             ShopArea.setText("");
             TreeArea.setText(arbolBusqueda.toString());
+            TreeValuesArea.setText(arbolBusqueda.toStringValor());
             System.out.println(arbolBusqueda.toString());
         }
     }//GEN-LAST:event_AMVCheckBoxActionPerformed
@@ -244,6 +275,7 @@ public class Interfaz extends javax.swing.JFrame {
             setArbol();
             ShopArea.setText("");
             TreeArea.setText(arbolBusqueda.toString());
+            TreeValuesArea.setText(arbolBusqueda.toStringValor());
             System.out.println(arbolBusqueda.toString());
         }
     }//GEN-LAST:event_AVLCheckBoxActionPerformed
@@ -260,12 +292,25 @@ public class Interfaz extends javax.swing.JFrame {
             this.AVLCheckBox.setState(false);
             this.ABBCheckBox.setState(false);
             this.AMVCheckBox.setState(false);
-            arbolBusqueda=new AB<>(4);
-            arbolCompra=new AB<>(4);
-            arbolDataBase=new AB<>(4);
+            try {
+                arbolBusqueda=new AB<>(4);
+            } catch (ExcepcionOrdenInvalido ex) {
+                Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                arbolCompra=new AB<>(4);
+            } catch (ExcepcionOrdenInvalido ex) {
+                Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                arbolDataBase=new AB<>(4);
+            } catch (ExcepcionOrdenInvalido ex) {
+                Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+            }
             setArbol();
             ShopArea.setText("");
             TreeArea.setText(arbolBusqueda.toString());
+            TreeValuesArea.setText(arbolBusqueda.toStringValor());
             System.out.println(arbolBusqueda.toString());
         }
     }//GEN-LAST:event_ABCheckBoxActionPerformed
@@ -280,6 +325,15 @@ public class Interfaz extends javax.swing.JFrame {
             this.AMVCheckBox.setState(false);
             this.AVLCheckBox.setState(false);
             this.ABCheckBox.setState(false);
+            arbolBusqueda=new ABB<>();
+            arbolCompra=new ABB<>();
+            arbolDataBase=new ABB<>();
+            setArbol();
+            ShopArea.setText("");
+            TreeArea.setText(arbolBusqueda.toString());
+            TreeValuesArea.setText(arbolBusqueda.toStringValor());
+            System.out.println(arbolBusqueda.toString());
+            System.out.println(arbolBusqueda.toStringValor());
         }
     }//GEN-LAST:event_ABBCheckBoxActionPerformed
 
@@ -289,6 +343,9 @@ public class Interfaz extends javax.swing.JFrame {
         this.CodeLabel.setVisible(true);
         this.NameLabel.setText("Producto A Insertar");
         this.NameLabel.setVisible(true);
+        this.CodeText.setVisible(true);
+        this.NameText.setVisible(true);
+        this.ExecuteButton.setVisible(true);
     }//GEN-LAST:event_InsertarButton
 
     private void CodeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodeTextActionPerformed
@@ -298,24 +355,47 @@ public class Interfaz extends javax.swing.JFrame {
     private void ExecuteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExecuteButtonActionPerformed
         // TODO add your handling code here:
         if(this.CodeLabel.getText()=="Codigo A Insertar"){
-            int prod= Integer.parseInt(codigoProd.getText());
-                String nombre=arbolBusqueda.buscar(prod);
-                if(arbolCompra.buscar(prod)==null) {
-                    arbolCompra.insertar(prod, nombre);
-                    arbolDataBase.insertar(prod,1);
-                }else {
-                    int cantidad=arbolDataBase.buscar(prod);
-                    arbolDataBase.insertar(prod,cantidad+1);
-                }
-                String deploy=listaDeCompra();
-                ShopArea.setText(deploy);
+            int prod= Integer.parseInt(CodeText.getText());
+            String nombre=arbolBusqueda.buscar(prod);
+            if(arbolCompra.buscar(prod)==null) {
+                arbolCompra.insertar(prod, nombre);
+                arbolDataBase.insertar(prod,1);
+            }else {
+                int cantidad=arbolDataBase.buscar(prod);
+                arbolDataBase.insertar(prod,cantidad+1);
+            }
+            String deploy=listaDeCompra();
+            ShopArea.setText(deploy);
         }else if(this.CodeLabel.getText()=="Codigo A Eliminar"){
-            int prod= Integer.parseInt(codigoProd.getText());
+            int prod= Integer.parseInt(CodeText.getText());
+            arbolCompra.eliminar(prod);
+            arbolDataBase.eliminar(prod);
+            String deploy=listaDeCompra();
+            this.ShopArea.setText(deploy);
+        }else if(this.CodeLabel.getText()=="Producto A Insertar"){
+            int prod= Integer.parseInt(CodeText.getText());
+            String nombre=arbolBusqueda.buscar(prod);
+            if(arbolBusqueda.buscar(prod)==null) {
+                arbolBusqueda.insertar(prod, nombre);
+            }
+        }else if(this.CodeLabel.getText()=="Producto A Eliminar"){
+            int prod= Integer.parseInt(CodeText.getText());
+            if(arbolBusqueda.buscar(prod)!=null){
                 arbolCompra.eliminar(prod);
                 arbolDataBase.eliminar(prod);
                 String deploy=listaDeCompra();
-            this.ShopArea.setText(deploy);
+                this.ShopArea.setText(deploy);
+            }
         }
+        this.CodeLabel.setText("");
+        this.CodeLabel.setVisible(false);
+        this.NameLabel.setText("");
+        this.NameLabel.setVisible(false);
+        this.CodeText.setVisible(false);
+        this.NameText.setVisible(false);
+        this.CodeText.setText("");
+        this.NameText.setText("");
+        this.ExecuteButton.setVisible(false);
                 
     }//GEN-LAST:event_ExecuteButtonActionPerformed
 
@@ -323,7 +403,28 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.CodeLabel.setText("Codigo A Eliminar");
         this.CodeLabel.setVisible(true);
+        this.CodeText.setVisible(true);
+        this.ExecuteButton.setVisible(true);
     }//GEN-LAST:event_EliminarButtonActionPerformed
+
+    private void InsertarArbolButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarArbolButtonActionPerformed
+        // TODO add your handling code here:this.CodeLabel.setText("Codigo A Insertar");
+        this.CodeLabel.setText("Producto A Insertar");
+        this.CodeLabel.setVisible(true);
+        this.NameLabel.setText("Nombre Del Producto");
+        this.NameLabel.setVisible(true);
+        this.CodeText.setVisible(true);
+        this.NameText.setVisible(true);
+        this.ExecuteButton.setVisible(true);
+    }//GEN-LAST:event_InsertarArbolButtonActionPerformed
+
+    private void EliminarDelArbolButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarDelArbolButtonActionPerformed
+        // TODO add your handling code here:
+        this.CodeLabel.setText("Producto A Eliminar");
+        this.CodeLabel.setVisible(true);
+        this.CodeText.setVisible(true);
+        this.ExecuteButton.setVisible(true);
+    }//GEN-LAST:event_EliminarDelArbolButtonActionPerformed
 
     public String listaDeCompra(){
         List<Integer> compras=arbolCompra.recorridoEnInOrden();
@@ -418,7 +519,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel CodeLabel;
     private javax.swing.JTextField CodeText;
     private javax.swing.JMenuItem EliminarButton;
+    private javax.swing.JMenuItem EliminarDelArbolButton;
     private javax.swing.JToggleButton ExecuteButton;
+    private javax.swing.JMenuItem InsertarArbolButton;
     private javax.swing.JMenuBar MenuArbol;
     private javax.swing.JLabel NameLabel;
     private javax.swing.JTextField NameText;
@@ -426,8 +529,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextArea ShopArea;
     private javax.swing.JTextArea TreeArea;
     private javax.swing.JMenu TreeTypeMenu;
+    private javax.swing.JTextArea TreeValuesArea;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }

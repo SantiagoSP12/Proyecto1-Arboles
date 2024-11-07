@@ -396,20 +396,21 @@ public class ABB<K extends Comparable<K>,V>
         return representacion;
     }
     
+    @Override
     public String toStringValor() {
-        return crearRepresentacion(raiz, "", "", "R");
+        return crearRepresentacionValor(raiz, "", "", "R");
     }
 
     private String crearRepresentacionValor(NodoBinario<K,V> nodo, String representacion, String prefijo, String tipo) {
         if (nodo == null) {
-            return representacion + prefijo + (tipo.equals("I") ? "|-- " : (tipo.equals("D") ? "'-- " : "")) + "null\n";
+            return representacion + prefijo + (tipo.equals("I") ? "|-- " : (tipo.equals("D") ? "'-- " : "")) + "\n";
         }
 
         representacion += prefijo + (tipo.equals("R") ? "" : (tipo.equals("D") ? "'-- " : "|-- ")) + "(" + tipo + ") " + nodo.getValor() + "\n";
 
         String nuevoPrefijo = prefijo + (tipo.equals("R") ? " " : (tipo.equals("I") ? "|    " : "     "));
-        representacion = crearRepresentacion(nodo.getHijoIzquierdo(), representacion, nuevoPrefijo, "I");
-        representacion = crearRepresentacion(nodo.getHijoDerecho(), representacion, nuevoPrefijo, "D");
+        representacion = crearRepresentacionValor(nodo.getHijoIzquierdo(), representacion, nuevoPrefijo, "I");
+        representacion = crearRepresentacionValor(nodo.getHijoDerecho(), representacion, nuevoPrefijo, "D");
 
         return representacion;
     }

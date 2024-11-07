@@ -90,6 +90,7 @@ public class AMV <K extends Comparable<K>,V>
                 nodoAux.setDato(i,datoACambiar);
                 nodoAux.setValor(i, valorACambiar);
                 datoACambiar=datoSalvar;
+                valorACambiar=valorSalvar;
             }else{
                 nodoSalvado=nodoAux.getHijo(i+1);
             }
@@ -476,8 +477,9 @@ public class AMV <K extends Comparable<K>,V>
         return representacion;
     }
     
+    @Override
     public String toStringValor() {
-        return crearRepresentacion(raiz, "", "", -1);
+        return crearRepresentacionValor(raiz, "", "", -1);
     }
 
     private String crearRepresentacionValor(NodoMVias<K,V> nodo, String representacion, String prefijo, int indice) {
@@ -489,7 +491,7 @@ public class AMV <K extends Comparable<K>,V>
 
         String nuevoPrefijo = prefijo + (indice==-1? " " : ((indice<orden&&indice>=0) ? "|    " : "     "));
         for(int i=0;i<=this.orden;i++){
-            representacion = crearRepresentacion(nodo.getHijo(i), representacion, nuevoPrefijo, i);
+            representacion = crearRepresentacionValor(nodo.getHijo(i), representacion, nuevoPrefijo, i);
         }
 
         return representacion;
