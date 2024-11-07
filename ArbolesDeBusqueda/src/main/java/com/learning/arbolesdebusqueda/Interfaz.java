@@ -48,8 +48,6 @@ public class Interfaz extends javax.swing.JFrame {
         NameLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ShopArea = new javax.swing.JTextArea();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TreeValuesArea = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         TreeArea = new javax.swing.JTextArea();
         MenuArbol = new javax.swing.JMenuBar();
@@ -86,10 +84,6 @@ public class Interfaz extends javax.swing.JFrame {
         ShopArea.setColumns(20);
         ShopArea.setRows(5);
         jScrollPane2.setViewportView(ShopArea);
-
-        TreeValuesArea.setColumns(20);
-        TreeValuesArea.setRows(5);
-        jScrollPane1.setViewportView(TreeValuesArea);
 
         TreeArea.setColumns(20);
         TreeArea.setRows(5);
@@ -178,8 +172,10 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(NameLabel)
@@ -190,32 +186,26 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addGap(111, 111, 111)
                                 .addComponent(CodeText, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(23, 23, 23)
-                        .addComponent(ExecuteButton))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(570, Short.MAX_VALUE))
+                        .addComponent(ExecuteButton)))
+                .addContainerGap(534, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ExecuteButton)
-                            .addComponent(CodeLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NameLabel))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ExecuteButton)
+                    .addComponent(CodeLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NameLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         pack();
@@ -251,9 +241,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
             setArbol();
             ShopArea.setText("");
-            TreeArea.setText(arbolBusqueda.toString());
-            TreeValuesArea.setText(arbolBusqueda.toStringValor());
-            System.out.println(arbolBusqueda.toString());
+            TreeArea.setText(arbolBusqueda.toStringValor());
         }
     }//GEN-LAST:event_AMVCheckBoxActionPerformed
 
@@ -274,9 +262,7 @@ public class Interfaz extends javax.swing.JFrame {
             arbolDataBase=new AVL<>();
             setArbol();
             ShopArea.setText("");
-            TreeArea.setText(arbolBusqueda.toString());
-            TreeValuesArea.setText(arbolBusqueda.toStringValor());
-            System.out.println(arbolBusqueda.toString());
+            TreeArea.setText(arbolBusqueda.toStringValor());
         }
     }//GEN-LAST:event_AVLCheckBoxActionPerformed
 
@@ -309,9 +295,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
             setArbol();
             ShopArea.setText("");
-            TreeArea.setText(arbolBusqueda.toString());
-            TreeValuesArea.setText(arbolBusqueda.toStringValor());
-            System.out.println(arbolBusqueda.toString());
+            TreeArea.setText(arbolBusqueda.toStringValor());
         }
     }//GEN-LAST:event_ABCheckBoxActionPerformed
 
@@ -330,10 +314,7 @@ public class Interfaz extends javax.swing.JFrame {
             arbolDataBase=new ABB<>();
             setArbol();
             ShopArea.setText("");
-            TreeArea.setText(arbolBusqueda.toString());
-            TreeValuesArea.setText(arbolBusqueda.toStringValor());
-            System.out.println(arbolBusqueda.toString());
-            System.out.println(arbolBusqueda.toStringValor());
+            TreeArea.setText(arbolBusqueda.toStringValor());
         }
     }//GEN-LAST:event_ABBCheckBoxActionPerformed
 
@@ -341,10 +322,11 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.CodeLabel.setText("Codigo A Insertar");
         this.CodeLabel.setVisible(true);
-        this.NameLabel.setText("Producto A Insertar");
+        this.NameLabel.setText("Cantidad A Insertar");
         this.NameLabel.setVisible(true);
         this.CodeText.setVisible(true);
         this.NameText.setVisible(true);
+        this.NameText.setText("1");
         this.ExecuteButton.setVisible(true);
     }//GEN-LAST:event_InsertarButton
 
@@ -356,13 +338,15 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.CodeLabel.getText()=="Codigo A Insertar"){
             int prod= Integer.parseInt(CodeText.getText());
+            int cant= Integer.parseInt(NameText.getText());
             String nombre=arbolBusqueda.buscar(prod);
             if(arbolCompra.buscar(prod)==null) {
                 arbolCompra.insertar(prod, nombre);
-                arbolDataBase.insertar(prod,1);
+                arbolDataBase.insertar(prod,cant);
             }else {
                 int cantidad=arbolDataBase.buscar(prod);
-                arbolDataBase.insertar(prod,cantidad+1);
+                arbolDataBase.insertar(prod,cantidad+cant);
+                
             }
             String deploy=listaDeCompra();
             ShopArea.setText(deploy);
@@ -376,15 +360,15 @@ public class Interfaz extends javax.swing.JFrame {
             int prod= Integer.parseInt(CodeText.getText());
             String nombre=arbolBusqueda.buscar(prod);
             if(arbolBusqueda.buscar(prod)==null) {
+                nombre=NameText.getText();
                 arbolBusqueda.insertar(prod, nombre);
+                this.TreeArea.setText(arbolBusqueda.toStringValor());
             }
         }else if(this.CodeLabel.getText()=="Producto A Eliminar"){
             int prod= Integer.parseInt(CodeText.getText());
             if(arbolBusqueda.buscar(prod)!=null){
-                arbolCompra.eliminar(prod);
-                arbolDataBase.eliminar(prod);
-                String deploy=listaDeCompra();
-                this.ShopArea.setText(deploy);
+                arbolBusqueda.eliminar(prod);
+                this.TreeArea.setText(arbolBusqueda.toStringValor());
             }
         }
         this.CodeLabel.setText("");
@@ -529,9 +513,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextArea ShopArea;
     private javax.swing.JTextArea TreeArea;
     private javax.swing.JMenu TreeTypeMenu;
-    private javax.swing.JTextArea TreeValuesArea;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables

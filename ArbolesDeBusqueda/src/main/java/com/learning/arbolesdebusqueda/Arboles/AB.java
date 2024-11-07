@@ -45,7 +45,8 @@ public class AB <K extends Comparable<K>,V> extends AMV<K,V>{
             do{
                 int posicionDeDatoEnNodo=this.buscarPosicionDeDatoEnNodo(nodoAux,datoAInsertar);
                 if(posicionDeDatoEnNodo!=POSICION_INVALIDA){
-                    throw new ExcepcionDatoYaExiste();
+                    nodoAux.setValor(posicionDeDatoEnNodo, valorAsociado);
+                    return;
                 }
                 //En este punto punto sabemos que el datoAInsertar no está en el nodoAux
                 if(nodoAux.esHoja()){

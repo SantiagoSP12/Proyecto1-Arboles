@@ -37,7 +37,8 @@ public class AVL<K extends Comparable<K>,V> extends ABB<K,V>{
             nodoActual.setHijoDerecho(supuestoNuevoHD);
             return balancear(nodoActual);
         }
-        throw new ExcepcionDatoYaExiste();
+        nodoActual.setValor(valorAsociado);
+        return nodoActual;
     }
 
     private NodoBinario<K,V> balancear(NodoBinario<K,V> nodo) {

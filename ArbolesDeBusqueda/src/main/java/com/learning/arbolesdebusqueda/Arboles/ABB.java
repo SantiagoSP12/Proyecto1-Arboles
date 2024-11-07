@@ -40,7 +40,8 @@ public class ABB<K extends Comparable<K>,V>
                 }else if(clave.compareTo(datoDelNodoAux)>0){
                     nodoAux=nodoAux.getHijoDerecho();
                 }else{
-                    throw new ExcepcionDatoYaExiste();
+                    nodoAux.setValor(valor);
+                    return;
                 }
             }while(!NodoBinario.esNodoVacio(nodoAux));
             NodoBinario<K,V> nuevoNodo=new NodoBinario<>(clave,valor);

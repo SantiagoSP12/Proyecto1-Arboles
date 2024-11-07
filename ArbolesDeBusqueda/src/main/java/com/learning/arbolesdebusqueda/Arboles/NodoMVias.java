@@ -31,7 +31,7 @@ public class NodoMVias <K,V>{
     public NodoMVias(int orden){
         listaDeDatos = new ArrayList<>();
         listaDeValores = new ArrayList<>();
-        listaDeHijos = new ArrayList<NodoMVias<K,V>>();
+        listaDeHijos = new ArrayList<>();
         for(int i=0;i<orden;i++){
             listaDeDatos.add((K)NodoMVias.datoVacio());
             listaDeValores.add((V)NodoMVias.datoVacio());
@@ -117,7 +117,7 @@ public class NodoMVias <K,V>{
         String representacion=" [";
         for (int i = 0; i <listaDeDatos.size(); i++) {
             if (!this.esDatoVacio(i)) {
-                representacion += this.getValor(i);
+                representacion += "("+this.getDato(i)+") "+this.getValor(i);
                 if (i < this.nroDeDatosNoVacios() - 1) {
                     representacion += ", ";
                 }

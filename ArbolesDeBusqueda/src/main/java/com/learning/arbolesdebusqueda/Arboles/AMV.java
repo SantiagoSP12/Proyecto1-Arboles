@@ -47,7 +47,8 @@ public class AMV <K extends Comparable<K>,V>
             do{
                 int posicionDeDatoEnNodo=this.buscarPosicionDeDatoEnNodo(nodoAux,datoAInsertar);
                 if(posicionDeDatoEnNodo!=POSICION_INVALIDA){
-                    throw new ExcepcionDatoYaExiste();
+                    nodoAux.setValor(posicionDeDatoEnNodo, valor);
+                    return;
                 }
                 //En este punto punto sabemos que el datoAInsertar no está en el nodoAux
                 if(nodoAux.esHoja()){
@@ -211,10 +212,10 @@ public class AMV <K extends Comparable<K>,V>
         NodoMVias<K,V> nodoAux = this.raiz;
         while(!NodoMVias.esNodoVacio(nodoAux)){
             boolean cambioElNodo= false;
-            for(int i = 0; i<nodoAux.nroDeDatosNoVacios()&&!cambioElNodo; i++) {
+            for(int i = 0; !cambioElNodo&&i<nodoAux.nroDeDatosNoVacios(); i++) {
                 K datoDelNodoAux = nodoAux.getDato(i);
-                V valorDelNodoAux = nodoAux.getValor(i);
                 if(dato.compareTo(datoDelNodoAux)==0) {
+                    V valorDelNodoAux = nodoAux.getValor(i);
                     return valorDelNodoAux;
                 }
                 if(dato.compareTo(datoDelNodoAux)<0){
